@@ -7,8 +7,8 @@ node{
     
     stage('Run Docker Compose File')
     {
-        bat 'runas.exe /user:administrator "docker-compose build"'
-        bat 'runas.exe /user:administrator "docker-compose up -d"'
+        sh ' docker-compose build'
+        sh ' docker-compose up -d'
     }
   stage('PUSH image to Docker Hub')
     {
@@ -20,10 +20,10 @@ node{
         */
         //docker.withRegistry( 'https://registry.hub.docker.com', 'DockerHubPassword' ) {
              
-             bat 'runas.exe /user:administrator "docker login -u "aadi1601" -p "Aaditya@16_01" docker.io"'
+             sh ' docker login -u "aadi1601" -p "Aaditya@16_01" docker.io'
              //sh 'sudo docker push upasanatestdocker/mysql'
              //sh 'sudo docker push upasanatestdocker/job1_web1.0'
-             bat 'runas.exe /user:administrator "docker push aadi1601/project1"'
+             sh ' docker push aadi1601/project1'
             // sh 'docker push upasanatestdocker/mysql'
           
     }
