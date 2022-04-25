@@ -2,13 +2,13 @@ node{
 
     stage('SCM Checkout')
     {
-        git credentialsId: '2eb89954-3865-494c-a688-28aac7800aa4', url: 'https://github.com/Aadi16/Devops.git'
+        git credentialsId: '5adeb539-b80d-4535-92f5-5435d9b9da14', url: 'https://github.com/Aadi16/Devops.git'
     }
     
     stage('Run Docker Compose File')
     {
-        sh ' docker-compose build'
-        sh ' docker-compose up -d'
+        sh 'sudo docker-compose build'
+        sh 'sudo docker-compose up -d'
     }
   stage('PUSH image to Docker Hub')
     {
@@ -20,11 +20,11 @@ node{
         */
         //docker.withRegistry( 'https://registry.hub.docker.com', 'DockerHubPassword' ) {
              
-             sh ' docker login -u "aadi1601" -p "Aaditya@16_01" docker.io'
+             sh 'sudo docker login -u "aadi1601" -p "Aaditya@16_01" docker.io'
              //sh 'sudo docker push upasanatestdocker/mysql'
              //sh 'sudo docker push upasanatestdocker/job1_web1.0'
-             sh ' docker push aadi1601/project1'
-            // sh 'docker push upasanatestdocker/mysql'
+             sh 'sudo docker push aadi1601/project1'
+            // sh 'sudo docker push upasanatestdocker/mysql'
           
     }
 }
